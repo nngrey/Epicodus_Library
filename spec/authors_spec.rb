@@ -41,17 +41,17 @@ describe Authors do
     end
   end
 
-  #   describe '.search' do
-  #   it 'locates a book that is being searched for by author' do
-  #     test_book = Book.new({:title => 'Ruby'})
-  #     test_book.save
-  #     test_author = Authors.new({:author => 'Ron'})
-  #     test_author.save
-  #     test_listing = Listing.new({:book_id => 5, :author_id => 3})
-  #     test_listing.save
-  #     Authors.search("Ron").should eq [test_book]
-  #   end
-  # end
+    describe '.search' do
+    it 'locates a book that is being searched for by author' do
+      test_book = Book.new({:title => 'Ruby'})
+      test_book.save
+      test_author = Authors.new({:name => 'Ron'})
+      test_author.save
+      test_listing = Listing.new({:book_id => test_book.id, :author_id => test_author.id})
+      test_listing.save
+      Authors.search("Ron").should eq "Ruby"
+    end
+  end
 
   describe '==' do
     it 'will save only one instance if the names are the same' do

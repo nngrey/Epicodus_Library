@@ -33,6 +33,10 @@ class Book
     books_array
   end
 
+  def self.search
+
+end
+
   def ==(another_book)
     self.title == another_book.title
   end

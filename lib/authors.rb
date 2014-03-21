@@ -31,10 +31,15 @@ attr_reader :name, :id
     authors_array
   end
 
-  # def self.search(title)
-  #   results = DB.exec("SELECT books.* FROM authors JOIN listings ON (authors.id = listings.author_id) JOIN books on (listings.book_id = books.id) WHERE authors.id = 3;")
-  #   binding.pry
-  # end
+  def self.search(name)
+    results = DB.exec("SELECT books.* FROM authors JOIN listings ON (authors.id = listings.author_id) JOIN books ON (listings.book_id = books.id) WHERE authors.name = '#{name}';")
+      search_array = []
+      results.each do |book|
+        search_array.push(book['title'])
+        search_array.push(book['id'])
+      end
+      search_array[0]
+  end
 
   def ==(another_author)
     self.name == another_author.name
