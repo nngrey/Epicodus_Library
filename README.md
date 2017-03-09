@@ -1,4 +1,4 @@
-Epicodus exercise using Ruby, SQL and joins
+#Epicodus exercise using Ruby, SQL and joins
 
 Library
 
